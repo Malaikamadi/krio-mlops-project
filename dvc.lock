@@ -1,0 +1,31 @@
+schema: '2.0'
+stages:
+  prepare_data:
+    cmd: python3 scripts/preparedata.py
+    deps:
+    - path: data/krio_en_pairs.jsonl
+      hash: md5
+      md5: 2eace531d3d758f35d584c3da973b76b
+      size: 129
+    outs:
+    - path: data/processed_data.jsonl
+      hash: md5
+      md5: 7ce7ea00d087b1b3899abb37ab2ee4de
+      size: 131
+  fine_tune_model:
+    cmd: python scripts/finetune.py
+    deps:
+    - path: data/processed_data.jsonl
+      hash: md5
+      md5: 7ce7ea00d087b1b3899abb37ab2ee4de
+      size: 131
+    - path: scripts/finetune.py
+      hash: md5
+      md5: 5522e4e79c1cd0d949d22e08dcd8d9e0
+      size: 1486
+    outs:
+    - path: models/checkpoint-8535
+      hash: md5
+      md5: 7de1e497ae4bec2e049a796fd07b219b.dir
+      size: 7413679137
+      nfiles: 11

@@ -1,0 +1,21 @@
+stages:
+  prepare_data:
+    cmd: python3 scripts/preparedata.py
+    deps:
+    - data/krio_en_pairs.jsonl
+    outs:
+    - data/processed_data.jsonl
+  fine_tune_model:
+    cmd: python scripts/finetune.py
+    deps:
+    - data/processed_data.jsonl
+    - scripts/finetune.py
+    outs:
+    - models/checkpoint-8535
+  evaluate_bleu:
+    cmd: python scripts/evaluatebleu.py
+    deps:
+    - models/checkpoint-8535
+    - scripts/evaluatebleu.py
+    outs:
+    - results/bleu_score.txt

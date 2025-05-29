@@ -1,5 +1,5 @@
 outs:
-- md5: e27fa8a6433a849d1d8b8199eabc0e51
-  size: 87030
+- md5: 2eace531d3d758f35d584c3da973b76b
+  size: 129
   hash: md5
   path: krio_en_pairs.jsonl

@@ -65,6 +65,7 @@ MLOps and DVC Benefits
 
 
 Challenges and Fixes
+- Limited krio resources, it was a real struggle traing the model with 1000+ krio sentence as these resources were very limited online.
 - JSONDecodeError: Solved with a script to validate lines before loading.
 - GitHub push limits: Handled by excluding large files via .gitignore and using DVC.
 - Model checkpoint size: Only final checkpoint pushed using DVC.
